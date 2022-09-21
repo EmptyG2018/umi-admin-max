@@ -5,7 +5,14 @@ import { useModel } from '@umijs/max';
 import styles from './index.less';
 
 const HomePage: React.FC = () => {
+
+  const initialState = useModel('@@initialState');
   const { name } = useModel('global');
+
+  console.log('init', initialState);
+  console.log('name', name);
+
+
   return (
     <PageContainer ghost>
       <div className={styles.container}>
