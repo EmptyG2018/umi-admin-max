@@ -4,8 +4,10 @@ import { request } from '@umijs/max';
 
 /** 此处后端没有提供注释 GET /api/v1/queryUserList */
 
-export async function getUserInfo() {
-  
+export async function getProfile() {
+  return request<API.Result_Profile_>('/api/v1/getProfile', {
+    method: 'GET',
+  })
 }
 
 export async function queryUserList(

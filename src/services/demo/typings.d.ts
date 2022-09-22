@@ -65,4 +65,31 @@ declare namespace API {
   }
 
   type definitions_0 = null;
+
+
+  interface Result_Profile_ {
+    success?: boolean;
+    errorMessage?: string;
+    data?: Profile_;
+  }
+
+  type Role_ = {
+    roleId: string;
+    roleName: string;
+  }
+
+  type Profile_ = {
+    id: string;
+    avatar: string;
+    name: string;
+    mobile: string;
+    email: string;
+    roleId: string;
+    roleName: string;
+    nickName: string;
+    sex: 1 | 2;
+    age: number;
+    roles: Role_[];
+  }
+
 }

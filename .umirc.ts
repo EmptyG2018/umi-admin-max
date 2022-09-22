@@ -6,9 +6,7 @@ export default defineConfig({
   model: {},
   initialState: {},
   request: {},
-  layout: {
-    title: '@umijs/max',
-  },
+  layout: {},
   routes: [
     {
       path: '/',
@@ -22,6 +20,7 @@ export default defineConfig({
     {
       name: '登录',
       path: '/login',
+      layout: false,
       component: './Login',
     },
     {
