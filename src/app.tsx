@@ -2,23 +2,16 @@
 import services from '@/services/demo';
 import { history } from '@umijs/max';
 import { RunTimeLayoutConfig } from '@umijs/max';
+// import GlobalLoading from './components/GlobalLoading';
 
 const { getProfile } = services.UserController;
 
-const loginPath = "/login";
+const loginPath = '/login';
 
 /** 获取用户信息比较慢的时候会展示一个 loading */
 // export const initialStateConfig = {
-//   // loading: <PageLoading />,
+//   loading: <GlobalLoading />,
 // };
-
-const delay = () => {
-  return new Promise((resolve: any) => {
-    setTimeout(() => {
-      resolve();
-    }, 5000);
-  });
-};
 
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate
@@ -26,8 +19,6 @@ export async function getInitialState(): Promise<{
   profile?: API.Profile_;
   getProfile?: () => Promise<API.Result_Profile_>;
 }> {
-  // await delay();
-
   const profileOk = await getProfile();
   return {
     profile: profileOk.data,
@@ -44,7 +35,6 @@ export function render(oldRender: () => void) {
   console.log('app:render');
   oldRender();
 }
-
 
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   console.log('initialState', initialState);
